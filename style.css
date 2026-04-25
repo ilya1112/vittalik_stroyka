@@ -1,0 +1,86 @@
+/* Custom styles for premium feel */
+
+:root {
+    --primary-gold: #f59e0b; /* amber-500 */
+    --bg-dark: #0f172a;     /* slate-900 */
+    --text-light: #e2e8f0;  /* slate-200 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth transition for header on scroll */
+#main-header.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(15, 23, 42, 0.8);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Bento Grid Adjustments */
+.grid-rows-2 {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+    .grid-rows-2 {
+        grid-template-rows: auto;
+    }
+}
+
+/* Card Hover Effects */
+.group:hover img {
+    transform: scale(1.05);
+}
+
+/* Custom typography for headings */
+h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+}
+
+/* Form focus states */
+input:focus {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+}
+
+/* Swiper Customization */
+.swiper-pagination-bullet {
+    background: #f59e0b !important;
+}
+
+.swiper-pagination-bullet-active {
+    width: 24px !important;
+    border-radius: 4px !important;
+}
+
+/* Navigation links hover effect */
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #f59e0b;
+    transition: width .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu .nav-link {
+    transition: color 0.3s ease;
+}
+
+#mobile-menu .nav-link:active {
+    color: #f59e0b;
+}
