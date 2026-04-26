@@ -9,21 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize Swiper (Gallery Slider)
-    const swiper = new Swiper('.mySwiper', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-    });
+    if (typeof Swiper !== 'undefined') {
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+    } else {
+        console.error('Swiper library not loaded. Slider will not work.');
+    }
 
     // Header Scroll Effect
     const header = document.getElementById('main-header');
@@ -49,14 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (closeMenu) {
         closeMenu.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('flex');
-            document.body.styleiv = ''; 
             document.body.style.overflow = 'auto';
         });
-    }
 
     // Close menu when clicking a link (for single page navigation)
     navLinks.forEach(link => {
